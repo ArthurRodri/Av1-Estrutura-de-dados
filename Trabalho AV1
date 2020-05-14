@@ -1,0 +1,127 @@
+#include<iostream>
+using namespace std;
+
+struct Lista {
+	int num;
+	Lista *prox, *ant;
+};
+
+
+int leiaIdade() {
+	int idade;
+	cout<<"\n Idade:"<<endl;
+	cin>>idade;
+	return Idade;
+}
+int leiaSexo(){
+	int sexo;
+	cout<<"\n Digite 1 para Homem e 2 para Mulher";<<endl;
+	cout<<"\n Sexo:"<<endl;
+	cin>>sexo;
+	return sexo;
+
+int gravida(){
+	leiaSexo() =sexo;
+	if(sexo ==2){
+		int gravida;
+		cout<<"\n está grávida?"
+		cout<<"\n Digite 1 para sim e 2 para não";<<endl;
+		cin<<gravida;
+
+	if(gravida==1){
+		inicio = novo;
+		fim = novo;
+		cout<< "novo"<<novo;
+		novo->prox = NULL;
+		novo->ant = NULL;
+	
+
+int main() {
+		
+	Lista *inicio = NULL, *fim=NULL, *aux = NULL;
+	int op=0, numero=0, achou = 0;
+	
+	while(op != 7) {
+		cout<<"\n\t 1-Inserir no Novo Cliente";
+		cout<<"\n\t 2-Inserir no fim da lista";
+		cout<<"\n\t 3-Consultar lista do inicio ao fim";
+		cout<<"\n\t 4-Remover Cliente da lista";
+		cout<<"\n\t 7-Sair";
+		cout<<"\n\t Escolha Opcao:"<<endl;
+		cin>>op;
+		if (op==1) {
+			
+			Lista *novo = new Lista;
+			novo->num = leiaIdade() +gravida ();
+			
+			if(leiaIdade()>65 ){
+				inicio = novo;
+				fim = novo;
+				cout<< "novo"<<novo;
+				novo->prox = NULL;
+				novo->ant = NULL;
+			
+			}else {
+				novo->prox = inicio;
+				cout<<"+1 prox"<<inicio;
+				inicio->ant=novo;
+				cout<<"+1 ant"<<inicio;
+				novo->ant=NULL;
+				inicio=novo;
+			}
+		}//fim op=1
+		
+		
+		if(op ==3 ) { //inicio/fim
+			if (inicio == NULL) {
+				cout<<"\nLista Vazia"<<endl;
+			}else {
+				aux = inicio;
+				while (aux != NULL){
+					cout<<"\n\tValor:"<< aux->num <<endl;
+					aux=aux->prox;
+				}
+			}
+		}//fim if op=3
+	if (op==4) {
+			if (inicio==NULL) {
+				cout<<"\nLista Vazia"<<endl;	
+			}else{
+				cout<<"\nDigite valor a ser removido"<<endl;
+				numero = leiaValor();
+				aux=inicio;
+				achou=0;
+				while (aux != NULL){
+					if (aux->num==numero){
+						achou++;
+						if (aux==inicio) {
+							inicio=aux->prox;
+							if (inicio != NULL){
+								inicio->ant = NULL;
+							}
+							delete(aux);
+							aux=inicio;						
+						}else if (aux==fim) {
+							fim = fim->ant;
+							fim->prox=NULL;
+							delete(aux);
+							aux=NULL;
+						}else {
+							aux->ant->prox = aux->prox;
+							aux->prox->ant = aux->ant;
+							Lista *aux2;
+							aux2=aux->prox;
+							delete(aux);
+							aux = aux2;
+						}
+					}else {
+						aux=aux->prox;
+					}
+		
+		
+		
+		
+	}//fim while
+	
+	return 1;
+}
